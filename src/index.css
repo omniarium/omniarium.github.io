@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ---------------------------------------------------------------------
+  omniarium — a small personal writing site.
+   Design notes: muted dark green/charcoal ground, warm off-white text,
+   restrained green accent, monospace-leaning type, subtle borders instead
+   of shadows or cards, generous space, no gradients or decoration beyond
+   the occasional hairline botanical mark.
+   --------------------------------------------------------------------- */
+
+:root {
+  --bg: #1e2521;
+  --bg-raised: #232b26;
+  --border: #3a453e;
+  --text: #D3C6AA;
+  --text-dim: #9f967f;
+  --accent: #A7C080;
+  --accent-dim: #829963;
+  --link-visited: #A7C080;
+
+  --font-body: 'IBM Plex Mono', monospace;
+  --font-heading: 'IBM Plex Mono', monospace;
+
+  --content-width: 40rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-dim);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--text);
+  text-decoration-color: var(--text);
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--text);
+}
+
+/* ---- layout shell ---- */
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-title-dot {
+  color: var(--accent);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.site-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+.site-nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent-dim);
+}
+
+.site-main {
+  flex: 1;
+  width: 100%;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+
+/* ---- page shell ---- */
+
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  margin: 0 0 1.75rem;
+}
+
+.section-heading {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  text-transform: lowercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  margin: 0 0 1.25rem;
+}
+
+/* ---- home intro ---- */
+
+.intro {
+  padding: 0.5rem 0 1.75rem;
+}
+
+.intro-text {
+  color: var(--text-dim);
+  font-size: 1rem;
+  max-width: 34rem;
+}
+
+.home-image {
+  width: 100%;
+  aspect-ratio: 4 / 1;
+  display: block;
+  height: auto;
+}
+
+.home-posts {
+  padding-top: 0.25rem;
+}
+
+.see-all {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ---- post list ---- */
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-list-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list-item:first-child {
+  padding-top: 0;
+}
+
+.post-list-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.post-list-item h3 a {
+  text-decoration: none;
+}
+
+.post-list-item h3 a:hover {
+  text-decoration: underline;
+}
+
+.post-meta {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.post-excerpt {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.empty-note {
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ---- individual post ---- */
+
+.post-back {
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-size: 1.7rem;
+  margin: 0 0 0.4rem;
+}
+
+.post-content {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.post-content p {
+  margin: 0 0 1.2rem;
+}
+
+.post-content h2 {
+  font-size: 1.25rem;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-content h3 {
+  font-size: 1.1rem;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.post-content a {
+  word-break: break-word;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border: 1px solid var(--border);
+}
+
+.post-content blockquote {
+  margin: 1.25rem 0;
+  padding: 0.25rem 1rem;
+  border-left: 2px solid var(--accent-dim);
+  color: var(--text-dim);
+}
+
+.post-content code {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 2px;
+}
+
+.post-content pre code {
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.4rem;
+  margin: 0 0 1.2rem;
+}
+
+/* ---- about page ---- */
+
+.about-content p {
+  color: var(--text-dim);
+  max-width: 34rem;
+}
+
+/* ---- responsive ---- */
+
+@media (min-width: 600px) {
+  .site-header-inner {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .page {
+    padding-top: 3.5rem;
+  }
+}
